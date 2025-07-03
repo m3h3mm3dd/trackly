@@ -21,10 +21,10 @@ public class CategoryService {
         var pr = PageRequest.of(page, size);
 
         if (userId == null && name == null) return repo.findAll(pr);
-        if (userId != null && name == null) return repo.findByUserId(userId, pr);
+        if (userId != null && name == null) return repo.findByUser_Id(userId, pr);
         if (userId == null)                 return repo.findByNameContainingIgnoreCase(name, pr);
 
-        return repo.findByUserIdAndNameContainingIgnoreCase(userId, name, pr);
+        return repo.findByUser_IdAndNameContainingIgnoreCase(userId, name, pr);
     }
 
     public Category update(Long id, Category c) { c.setId(id); return repo.save(c); }

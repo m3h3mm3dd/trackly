@@ -6,13 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import static org.springframework.data.jpa.domain.Specification.where;
 
 @Service
 @RequiredArgsConstructor
@@ -31,10 +28,8 @@ public class ExpenseService {
     public Page<Expense> list(
             int page, int size,
             Long userId, Long categoryId,
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from,
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to,
+            LocalDate from, LocalDate to,
             BigDecimal min, BigDecimal max) {
-
 
         Specification<Expense> s = Specification.<Expense>where(null)
                 .and(userId    == null ? null : (r,q,cb)-> cb.equal(r.get("user").get("id"), userId))
