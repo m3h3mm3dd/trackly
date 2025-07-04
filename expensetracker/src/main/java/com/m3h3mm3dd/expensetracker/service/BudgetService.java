@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-import static org.springframework.data.jpa.domain.Specification.where;
-
 @Service
 @RequiredArgsConstructor
 public class BudgetService {

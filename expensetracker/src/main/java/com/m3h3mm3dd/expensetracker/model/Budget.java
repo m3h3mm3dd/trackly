@@ -1,7 +1,6 @@
 package com.m3h3mm3dd.expensetracker.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
@@ -33,7 +32,7 @@ public class Budget {
     @NotNull
     private LocalDate start;
 
-    @Future
+    @NotNull
     private LocalDate end;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
